@@ -1,0 +1,74 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+
+
+    height: 100vh;
+    margin: 0;
+}
+.primaryContainer{
+    text-align: center;
+
+}
+button{
+    font-size: 18px;
+}
+.secondaryContainer{
+    text-align: center;
+
+}
+
+.cajaBotones{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50vh;
+    margin-bottom: 20px;
+}
+#inicioPartida{
+    color:white;
+    background-color: green;
+    border-radius: 10px;
+    width:180px;
+    height: 60px;
+}
+#estadisticas{
+    color:black;
+    background-color:cyan;
+    border-radius: 10px;
+    width:180px;
+    height: 60px;
+}
+#estadisticasBorrar{
+    color:white;
+    background-color:red;
+    border-radius: 10px;
+    width:180px;
+    height: 60px;
+}
+#jocPenjat{
+    margin-bottom: 20px;
+    font-size: 25px;
+    margin: 5%;
+}
+
+#abecedari{
+    margin-bottom: 20px;
+    padding: 20px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  margin: 5%;
+}
+#imatgePenjat{
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+#lletresUtilitzades{
+    margin-bottom: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    font-size: 18px;
+}

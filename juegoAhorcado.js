@@ -1,6 +1,6 @@
-let wonGame  = 0 ;
-let loseGame = 0;
-
+let wonGame = localStorage.getItem("wonGame") ?? 0 ;
+let loseGame = localStorage.getItem("loseGame") ?? 0 ;
+let totalGames = localStorage.getItem("totalGames") ?? 0 ;
 function inicioPrograma(){
     let input;
 
@@ -21,7 +21,10 @@ function inicioPrograma(){
         estadísticas(wonGame,loseGame);
         break;
         case 3:
-        exitGame();   
+        exitGame(); 
+        wonGame =0;
+        loseGame =0;
+        totalGames =0;  
         break;
   
     }
@@ -71,6 +74,7 @@ function checkSuccesCharacter(inputWord , character){
         alert(" ¡ La letra introducida es correcta !")
         return true; 
     } 
+    alert("La letra introducida es incorrecta , se contabiliza un fallo");
     return false;
 }
 
@@ -78,12 +82,12 @@ function checkSuccesCharacter(inputWord , character){
 function checkGame(errorCounter ,inputWord, inputWordCode){
     if( errorCounter == 6){
     alert("Has perdido");
-    loseGame++;
+    localStorage.setItem("loseGame", loseGame++);
     return false;
     } else if ( errorCounter < 6 && (""+inputWord) == (""+inputWordCode)){            
     adivinarPalabra = true;
     alert("Enhorabuena has ganado , la palabra era " + inputWord.join(''));
-    wonGame++;
+    localStorage.setItem("wonGame", wonGame++);
     return true;
     }
     return false;
@@ -103,21 +107,16 @@ return inputCharacter;
 }
 
 
-
-
-
-
-
-
-
 function estadísticas(wonGame,loseGame){
-    let totalGames = wonGame + loseGame;
+   
+    totalGames = parseInt((wonGame + loseGame));
 
-    if(totalGames == 0){
+    if(totalGames == 0 || totalGames == null){
       return  alert(" No hay partidas suficientes para tener un registro de estadísticas ");
-    }
-    return alert( " Partidas totales : " + totalGames + " \nand Partidas ganadas : " + wonGame + " , con un " + (wonGame/totalGames)*100 + "% de victorias"
-   + " \nand Partidas perdidas : " + loseGame + " , con un " +  (loseGame/totalGames)*100 + "% de perdidas"  );
+    } 
+    
+    return alert( " Partidas totales : " + totalGames + " \n Partidas ganadas : " + wonGame + " , con un " + (wonGame/totalGames)*100 + "% de victorias"
+   + " \n Partidas perdidas : " + loseGame + " , con un " +  (loseGame/totalGames)*100 + "% de perdidas"  );
    
 }
 
